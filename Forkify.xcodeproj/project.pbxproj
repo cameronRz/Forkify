@@ -17,6 +17,7 @@
 		7E60225C29D5D01100E77E54 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60225B29D5D01100E77E54 /* IconView.swift */; };
 		7E60226229D5D95200E77E54 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60226129D5D95200E77E54 /* LogoView.swift */; };
 		7E60226A29D5DC9100E77E54 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E60226929D5DC9100E77E54 /* Pacifico-Regular.ttf */; };
+		7E60226C29D5E67300E77E54 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60226B29D5E67300E77E54 /* LoaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7E60225D29D5D49C00E77E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7E60226129D5D95200E77E54 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		7E60226929D5DC9100E77E54 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		7E60226B29D5E67300E77E54 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				7E60225B29D5D01100E77E54 /* IconView.swift */,
 				7E60226129D5D95200E77E54 /* LogoView.swift */,
+				7E60226B29D5E67300E77E54 /* LoaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				7E60224C29D5C93000E77E54 /* Persistence.swift in Sources */,
 				7E60224529D5C92D00E77E54 /* ContentView.swift in Sources */,
 				7E60226229D5D95200E77E54 /* LogoView.swift in Sources */,
+				7E60226C29D5E67300E77E54 /* LoaderView.swift in Sources */,
 				7E60224F29D5C93000E77E54 /* Forkify.xcdatamodeld in Sources */,
 				7E60224329D5C92D00E77E54 /* ForkifyApp.swift in Sources */,
 			);
