@@ -6,88 +6,62 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    // MARK: - Properties
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    
-    private var items: FetchedResults<Item>
-    
-    // MARK: - Functions
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            
-            do {
-                try viewContext.save()
-            } catch {
-                // fatalError is only for development
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-            
-            do {
-                try viewContext.save()
-            } catch {
-                // fatalError is only for development
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+    @EnvironmentObject var forkifyStore: ForkifyStore
     
     // MARK: - Content
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        VStack {
+            // MARK: - Top section
+            TopBarView()
+                .padding(.horizontal)
+                .padding(.bottom)
+            
+            // MARK: - Search section
+            SearchView()
+                .padding()
+            
+            // TODO: Add center modifer for Spacers
+            // MARK: - Results section
+            if forkifyStore.isLoading {
+                Spacer()
+                LoaderView()
+                Spacer()
+            } else {
+                if forkifyStore.recipes.isEmpty {
+                    Spacer()
+                    Text("Start by searching for a recipe or an ingredient. Have fun!")
+                        .roundedFont(size: 20)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 300)
+                    IconView(icon: .smiley)
+                        .frame(width: 60)
+                        .foregroundColor(.accentColor)
+                    Spacer()
+                } else {
+                    ScrollView(.vertical) {
+                        VStack {
+                            ForEach(forkifyStore.recipes, id: \.id) { recipe in
+                                RecipeTileView(recipe: recipe)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom)
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
+            
+            Spacer()
         }
+        .background(K.Colors.grayLight1.ignoresSafeArea())
     }
 }
-
-// MARK: - Item formatter
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    
-    return formatter
-}()
 
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .environmentObject(ForkifyStore())
     }
 }

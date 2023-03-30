@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct K {
+    static let forkifyApiEndpoint = "https://forkify-api.herokuapp.com/api/v2/recipes/"
+    
     struct Colors {
-        static let primary = Color("ColorPrimary")
-        
         static let grayLight1 = Color("ColorGrayLight1")
         static let grayLight2 = Color("ColorGrayLight2")
         static let grayLight3 = Color("ColorGrayLight3")

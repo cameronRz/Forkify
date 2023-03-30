@@ -18,6 +18,15 @@
 		7E60226229D5D95200E77E54 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60226129D5D95200E77E54 /* LogoView.swift */; };
 		7E60226A29D5DC9100E77E54 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E60226929D5DC9100E77E54 /* Pacifico-Regular.ttf */; };
 		7E60226C29D5E67300E77E54 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60226B29D5E67300E77E54 /* LoaderView.swift */; };
+		7E60227229D5FA4D00E77E54 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227129D5FA4D00E77E54 /* Extensions.swift */; };
+		7E60227429D6028600E77E54 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227329D6028600E77E54 /* SearchView.swift */; };
+		7E60227629D6046A00E77E54 /* RecipeTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227529D6046A00E77E54 /* RecipeTileView.swift */; };
+		7E60227829D608DE00E77E54 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227729D608DE00E77E54 /* TopBarView.swift */; };
+		7E60227A29D6098C00E77E54 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227929D6098C00E77E54 /* RecipeView.swift */; };
+		7E60227D29D612B900E77E54 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227C29D612B900E77E54 /* Ingredient.swift */; };
+		7E60228929D61E3A00E77E54 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60228829D61E3A00E77E54 /* Recipe.swift */; };
+		7E60228E29D6213A00E77E54 /* ForkifyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60228D29D6213A00E77E54 /* ForkifyStore.swift */; };
+		7E60229429D6284D00E77E54 /* ForkifyApiSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60229329D6284D00E77E54 /* ForkifyApiSearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +43,15 @@
 		7E60226129D5D95200E77E54 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		7E60226929D5DC9100E77E54 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		7E60226B29D5E67300E77E54 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		7E60227129D5FA4D00E77E54 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7E60227329D6028600E77E54 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7E60227529D6046A00E77E54 /* RecipeTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTileView.swift; sourceTree = "<group>"; };
+		7E60227729D608DE00E77E54 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		7E60227929D6098C00E77E54 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		7E60227C29D612B900E77E54 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		7E60228829D61E3A00E77E54 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		7E60228D29D6213A00E77E54 /* ForkifyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkifyStore.swift; sourceTree = "<group>"; };
+		7E60229329D6284D00E77E54 /* ForkifyApiSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkifyApiSearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +86,8 @@
 			children = (
 				7E60225E29D5D79B00E77E54 /* Fonts */,
 				7E60225829D5CE6F00E77E54 /* Support */,
+				7E60228A29D61F4300E77E54 /* Store */,
+				7E60227B29D60AC500E77E54 /* Models */,
 				7E60225729D5CE5300E77E54 /* Components */,
 				7E60225629D5CA2500E77E54 /* Views */,
 				7E60224B29D5C93000E77E54 /* Persistence.swift */,
@@ -92,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				7E60224429D5C92D00E77E54 /* ContentView.swift */,
+				7E60227929D6098C00E77E54 /* RecipeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +123,9 @@
 				7E60225B29D5D01100E77E54 /* IconView.swift */,
 				7E60226129D5D95200E77E54 /* LogoView.swift */,
 				7E60226B29D5E67300E77E54 /* LoaderView.swift */,
+				7E60227329D6028600E77E54 /* SearchView.swift */,
+				7E60227529D6046A00E77E54 /* RecipeTileView.swift */,
+				7E60227729D608DE00E77E54 /* TopBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -110,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7E60225929D5CE8200E77E54 /* Constants.swift */,
+				7E60227129D5FA4D00E77E54 /* Extensions.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -120,6 +145,24 @@
 				7E60226929D5DC9100E77E54 /* Pacifico-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7E60227B29D60AC500E77E54 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E60227C29D612B900E77E54 /* Ingredient.swift */,
+				7E60228829D61E3A00E77E54 /* Recipe.swift */,
+				7E60229329D6284D00E77E54 /* ForkifyApiSearchResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7E60228A29D61F4300E77E54 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				7E60228D29D6213A00E77E54 /* ForkifyStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,14 +236,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E60227429D6028600E77E54 /* SearchView.swift in Sources */,
 				7E60225A29D5CE8200E77E54 /* Constants.swift in Sources */,
+				7E60227D29D612B900E77E54 /* Ingredient.swift in Sources */,
+				7E60229429D6284D00E77E54 /* ForkifyApiSearchResponse.swift in Sources */,
 				7E60225C29D5D01100E77E54 /* IconView.swift in Sources */,
 				7E60224C29D5C93000E77E54 /* Persistence.swift in Sources */,
 				7E60224529D5C92D00E77E54 /* ContentView.swift in Sources */,
 				7E60226229D5D95200E77E54 /* LogoView.swift in Sources */,
+				7E60227A29D6098C00E77E54 /* RecipeView.swift in Sources */,
 				7E60226C29D5E67300E77E54 /* LoaderView.swift in Sources */,
+				7E60228E29D6213A00E77E54 /* ForkifyStore.swift in Sources */,
+				7E60228929D61E3A00E77E54 /* Recipe.swift in Sources */,
 				7E60224F29D5C93000E77E54 /* Forkify.xcdatamodeld in Sources */,
 				7E60224329D5C92D00E77E54 /* ForkifyApp.swift in Sources */,
+				7E60227229D5FA4D00E77E54 /* Extensions.swift in Sources */,
+				7E60227829D608DE00E77E54 /* TopBarView.swift in Sources */,
+				7E60227629D6046A00E77E54 /* RecipeTileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
