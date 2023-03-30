@@ -14,15 +14,15 @@ struct LogoView: View {
                 Circle().fill(K.Colors.gradient)
                 
                 IconView(icon: .logo)
-                    .padding()
+                    .padding(10)
                     .foregroundColor(.white)
             }
             
             Text("forkify")
-                .font(Font.custom("Pacifico-Regular", size: 40))
+                .font(Font.custom("Pacifico-Regular", size: 30))
                 .foregroundColor(K.Colors.grayDark1)
         }
-        .frame(height: 70)
+        .frame(height: 50)
     }
 }
 
