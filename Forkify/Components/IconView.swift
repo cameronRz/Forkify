@@ -19,6 +19,7 @@ struct IconView: View {
 
 // MARK: - Icons enum
 enum ForkifyIcons: String {
+    case logo = "fork.knife"
     case smiley = "face.smiling"
     case bookmarks = "bookmark"
     case search = "magnifyingglass"
