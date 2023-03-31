@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeTileView: View {
-    var recipe: RecipeSearchResult
+    var recipe: FSRecipe
     
     var body: some View {
         HStack(spacing: 20) {
@@ -59,7 +59,7 @@ struct RecipeTileView: View {
 }
 
 struct RecipeTileView_Previews: PreviewProvider {
-    static let recipe = RecipeSearchResult(
+    static let recipe = FSRecipe(
         id: "5ed6604591c37cdc054bcd09",
         title: "Cauliflower Pizza Crust (with BBQ Chicken Pizza)",
         publisher: "Closet Cooking",

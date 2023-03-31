@@ -11,6 +11,14 @@ extension View {
     func roundedFont(size: CGFloat? = nil) -> some View {
         self.font(.system(size: size ?? 17, design: .rounded))
     }
+    
+    func centerHorizontal() -> some View {
+        self.modifier(CenterHorizontalModifier())
+    }
+    
+    func centerVertical() -> some View {
+        self.modifier(CenterVerticalModifier())
+    }
 }
 
 // MARK: - Hide keyboard

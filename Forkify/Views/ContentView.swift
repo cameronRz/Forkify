@@ -12,49 +12,55 @@ struct ContentView: View {
     
     // MARK: - Content
     var body: some View {
-        VStack {
-            // MARK: - Top section
-            TopBarView()
-                .padding(.horizontal)
-                .padding(.bottom)
-            
-            // MARK: - Search section
-            SearchView()
-                .padding()
-            
-            // TODO: Add center modifer for Spacers
-            // MARK: - Results section
-            if forkifyStore.isLoading {
-                Spacer()
-                LoaderView()
-                Spacer()
-            } else {
-                if forkifyStore.recipes.isEmpty {
-                    Spacer()
-                    Text("Start by searching for a recipe or an ingredient. Have fun!")
-                        .roundedFont(size: 20)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: 300)
-                    IconView(icon: .smiley)
-                        .frame(width: 60)
-                        .foregroundColor(.accentColor)
-                    Spacer()
+        NavigationStack {
+            VStack {
+                // MARK: - Top section
+                TopBarView()
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                
+                // MARK: - Search section
+                SearchView()
+                    .padding()
+
+                // MARK: - Results section
+                if forkifyStore.isLoading {
+                    LoaderView()
+                        .centerVertical()
                 } else {
-                    ScrollView(.vertical) {
+                    if forkifyStore.recipes.isEmpty {
+                        // MARK: - Placeholer message
                         VStack {
-                            ForEach(forkifyStore.recipes, id: \.id) { recipe in
-                                RecipeTileView(recipe: recipe)
-                            }
+                            IconView(icon: .smiley)
+                                .frame(width: 60)
+                                .foregroundColor(.accentColor)
+                            Text("Start by searching for a recipe or an ingredient. Have fun!")
+                                .roundedFont(size: 20)
+                                .foregroundColor(K.Colors.grayDark1)
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth: 300)
                         }
-                        .padding(.horizontal)
-                        .padding(.bottom)
+                        .centerVertical()
+                    } else {
+                        // MARK: - Recipe results list
+                        ScrollView(.vertical) {
+                            VStack {
+                                ForEach(forkifyStore.recipes, id: \.id) { recipe in
+                                    NavigationLink(destination: RecipeView(recipeId: recipe.id)) {
+                                        RecipeTileView(recipe: recipe)
+                                    }
+                                }
+                            }
+                            .padding(.horizontal)
+                            .padding(.bottom)
+                        }
                     }
                 }
+                
+                Spacer()
             }
-            
-            Spacer()
+            .background(K.Colors.grayLight1.ignoresSafeArea())
         }
-        .background(K.Colors.grayLight1.ignoresSafeArea())
     }
 }
 

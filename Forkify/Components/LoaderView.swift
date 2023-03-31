@@ -12,7 +12,7 @@ struct LoaderView: View {
         VStack {
             ProgressView()
                 .tint(K.Colors.grayDark1)
-                .scaleEffect(2, anchor: .center)
+                .scaleEffect(1.3, anchor: .center)
         }
         .padding()
     }

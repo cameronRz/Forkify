@@ -37,7 +37,6 @@ struct SearchView: View {
                 hideKeyboard()
             } label: {
                 HStack {
-                    Spacer()
                     IconView(icon: .search)
                         .fontWeight(.semibold)
                         .frame(height: 20)
@@ -45,8 +44,8 @@ struct SearchView: View {
                     Text("SEARCH")
                         .fontWeight(.semibold)
                         .roundedFont()
-                    Spacer()
                 }
+                .centerHorizontal()
                 .padding()
                 .background(K.Colors.gradient)
                 .clipShape(Capsule())

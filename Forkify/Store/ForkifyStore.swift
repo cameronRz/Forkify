@@ -11,7 +11,7 @@ fileprivate let apiEndpoint = "https://forkify-api.herokuapp.com/api/v2/recipes/
 
 class ForkifyStore: ObservableObject {
     @Published var isLoading: Bool = false
-    @Published var recipes = [RecipeSearchResult]()
+    @Published var recipes = [FSRecipe]()
     
     func searchRecipes(withPhrase phrase: String) {
         isLoading = true
@@ -26,7 +26,7 @@ class ForkifyStore: ObservableObject {
             
             if let safeData = data {
                 do {
-                    let decodedData = try JSONDecoder().decode(ForkifyApiSearchResponse.self, from: safeData)
+                    let decodedData = try JSONDecoder().decode(FSResponse.self, from: safeData)
                     
                     if let recipeSearchResults = decodedData.data?.recipes {
                         DispatchQueue.main.async {
