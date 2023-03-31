@@ -23,8 +23,7 @@
 		7E60227629D6046A00E77E54 /* RecipeTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227529D6046A00E77E54 /* RecipeTileView.swift */; };
 		7E60227829D608DE00E77E54 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227729D608DE00E77E54 /* TopBarView.swift */; };
 		7E60227A29D6098C00E77E54 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227929D6098C00E77E54 /* RecipeView.swift */; };
-		7E60227D29D612B900E77E54 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227C29D612B900E77E54 /* Ingredient.swift */; };
-		7E60228929D61E3A00E77E54 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60228829D61E3A00E77E54 /* Recipe.swift */; };
+		7E60227D29D612B900E77E54 /* FSIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60227C29D612B900E77E54 /* FSIngredient.swift */; };
 		7E60228E29D6213A00E77E54 /* ForkifyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60228D29D6213A00E77E54 /* ForkifyStore.swift */; };
 		7E60229429D6284D00E77E54 /* FSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60229329D6284D00E77E54 /* FSResponse.swift */; };
 		7E60229629D7109500E77E54 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E60229529D7109500E77E54 /* Modifiers.swift */; };
@@ -51,8 +50,7 @@
 		7E60227529D6046A00E77E54 /* RecipeTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTileView.swift; sourceTree = "<group>"; };
 		7E60227729D608DE00E77E54 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		7E60227929D6098C00E77E54 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
-		7E60227C29D612B900E77E54 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
-		7E60228829D61E3A00E77E54 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		7E60227C29D612B900E77E54 /* FSIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSIngredient.swift; sourceTree = "<group>"; };
 		7E60228D29D6213A00E77E54 /* ForkifyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkifyStore.swift; sourceTree = "<group>"; };
 		7E60229329D6284D00E77E54 /* FSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSResponse.swift; sourceTree = "<group>"; };
 		7E60229529D7109500E77E54 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -157,9 +155,10 @@
 		7E60227B29D60AC500E77E54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7E60229729D715E800E77E54 /* ForkifySearchResponse */,
-				7E60227C29D612B900E77E54 /* Ingredient.swift */,
-				7E60228829D61E3A00E77E54 /* Recipe.swift */,
+				7E60229329D6284D00E77E54 /* FSResponse.swift */,
+				7E60229829D7167A00E77E54 /* FSData.swift */,
+				7E60229A29D7168C00E77E54 /* FSRecipe.swift */,
+				7E60227C29D612B900E77E54 /* FSIngredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,16 +169,6 @@
 				7E60228D29D6213A00E77E54 /* ForkifyStore.swift */,
 			);
 			path = Store;
-			sourceTree = "<group>";
-		};
-		7E60229729D715E800E77E54 /* ForkifySearchResponse */ = {
-			isa = PBXGroup;
-			children = (
-				7E60229329D6284D00E77E54 /* FSResponse.swift */,
-				7E60229829D7167A00E77E54 /* FSData.swift */,
-				7E60229A29D7168C00E77E54 /* FSRecipe.swift */,
-			);
-			path = ForkifySearchResponse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +244,7 @@
 			files = (
 				7E60227429D6028600E77E54 /* SearchView.swift in Sources */,
 				7E60225A29D5CE8200E77E54 /* Constants.swift in Sources */,
-				7E60227D29D612B900E77E54 /* Ingredient.swift in Sources */,
+				7E60227D29D612B900E77E54 /* FSIngredient.swift in Sources */,
 				7E60229929D7167A00E77E54 /* FSData.swift in Sources */,
 				7E60229429D6284D00E77E54 /* FSResponse.swift in Sources */,
 				7E60225C29D5D01100E77E54 /* IconView.swift in Sources */,
@@ -265,7 +254,6 @@
 				7E60227A29D6098C00E77E54 /* RecipeView.swift in Sources */,
 				7E60226C29D5E67300E77E54 /* LoaderView.swift in Sources */,
 				7E60228E29D6213A00E77E54 /* ForkifyStore.swift in Sources */,
-				7E60228929D61E3A00E77E54 /* Recipe.swift in Sources */,
 				7E60224F29D5C93000E77E54 /* Forkify.xcdatamodeld in Sources */,
 				7E60224329D5C92D00E77E54 /* ForkifyApp.swift in Sources */,
 				7E60227229D5FA4D00E77E54 /* Extensions.swift in Sources */,

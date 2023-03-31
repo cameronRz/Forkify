@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - View Extensions
 extension View {
     func roundedFont(size: CGFloat? = nil) -> some View {
         self.font(.system(size: size ?? 17, design: .rounded))
@@ -24,8 +25,8 @@ extension View {
 // MARK: - Hide keyboard
 #if canImport(UIKit)
 extension View {
-  func hideKeyboard() {
-    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-  }
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
 #endif
