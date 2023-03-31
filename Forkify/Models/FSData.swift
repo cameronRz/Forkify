@@ -9,5 +9,6 @@ import Foundation
 
 // Forkify Search Response Data
 struct FSData: Decodable {
-    let recipes: [FSRecipe]
+    let recipe: FSRecipe?
+    let recipes: [FSRecipe]?
 }

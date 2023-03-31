@@ -14,13 +14,12 @@ struct FSRecipe: Identifiable, Decodable {
     let publisher: String
     let imageUrl: String?
 
-    var sourceUrl: String? = nil
-    var servings: Int? = nil
-    var cookingTime: Int? = nil
-    var ingredients: [FSIngredient]? = nil
+    var sourceUrl: String?
+    var servings: Int?
+    var cookingTime: Int?
+    var ingredients: [FSIngredient]?
     
-    // Made optional since it doesn't exist
-    // on the JSON object
+    // Made optional since it doesn't exist on the JSON object
     var bookmarked: Bool? = false
 
     var imageURL: URL? {
