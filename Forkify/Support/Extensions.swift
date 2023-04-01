@@ -30,3 +30,16 @@ extension View {
     }
 }
 #endif
+
+// MARK: - FloatingPoint Extension
+extension FloatingPoint {
+    var whole: Self { modf(self).0 }
+    var fraction: Self { modf(self).1 }
+}
+
+// MARK: - String Extension
+extension String {
+    var isInt: Bool {
+        return Int(self) != nil
+    }
+}

@@ -44,7 +44,7 @@ struct ContentView: View {
                     } else {
                         // MARK: - Recipe results list
                         ScrollView(.vertical) {
-                            VStack {
+                            VStack(spacing: 10) {
                                 ForEach(forkifyStore.recipes, id: \.id) { recipe in
                                     NavigationLink(destination: RecipeView(recipeId: recipe.id)) {
                                         RecipeTileView(recipe: recipe)

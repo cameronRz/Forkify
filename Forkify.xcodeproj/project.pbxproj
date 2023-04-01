@@ -35,6 +35,8 @@
 		7E6022A729D781C500E77E54 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022A629D781C500E77E54 /* TestData.swift */; };
 		7E6022A929D782EF00E77E54 /* IconDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022A829D782EF00E77E54 /* IconDetailView.swift */; };
 		7E6022AB29D786A500E77E54 /* IngredientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022AA29D786A500E77E54 /* IngredientListView.swift */; };
+		7E6022B129D7C84900E77E54 /* DirectionsLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022B029D7C84900E77E54 /* DirectionsLinkView.swift */; };
+		7E6022B329D7CC4000E77E54 /* ServingControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022B229D7CC4000E77E54 /* ServingControls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		7E6022A629D781C500E77E54 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		7E6022A829D782EF00E77E54 /* IconDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconDetailView.swift; sourceTree = "<group>"; };
 		7E6022AA29D786A500E77E54 /* IngredientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListView.swift; sourceTree = "<group>"; };
+		7E6022B029D7C84900E77E54 /* DirectionsLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsLinkView.swift; sourceTree = "<group>"; };
+		7E6022B229D7CC4000E77E54 /* ServingControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingControls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 				7E6022A429D779E200E77E54 /* BookmarkButton.swift */,
 				7E6022A829D782EF00E77E54 /* IconDetailView.swift */,
 				7E6022AA29D786A500E77E54 /* IngredientListView.swift */,
+				7E6022B029D7C84900E77E54 /* DirectionsLinkView.swift */,
+				7E6022B229D7CC4000E77E54 /* ServingControls.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				7E60225A29D5CE8200E77E54 /* Constants.swift in Sources */,
 				7E60227D29D612B900E77E54 /* FSIngredient.swift in Sources */,
 				7E60229929D7167A00E77E54 /* FSData.swift in Sources */,
+				7E6022B129D7C84900E77E54 /* DirectionsLinkView.swift in Sources */,
 				7E60229429D6284D00E77E54 /* FSResponse.swift in Sources */,
 				7E6022AB29D786A500E77E54 /* IngredientListView.swift in Sources */,
 				7E60225C29D5D01100E77E54 /* IconView.swift in Sources */,
@@ -281,6 +288,7 @@
 				7E60227229D5FA4D00E77E54 /* Extensions.swift in Sources */,
 				7E60227829D608DE00E77E54 /* TopBarView.swift in Sources */,
 				7E60229629D7109500E77E54 /* Modifiers.swift in Sources */,
+				7E6022B329D7CC4000E77E54 /* ServingControls.swift in Sources */,
 				7E60229B29D7168C00E77E54 /* FSRecipe.swift in Sources */,
 				7E60227629D6046A00E77E54 /* RecipeTileView.swift in Sources */,
 				7E6022A929D782EF00E77E54 /* IconDetailView.swift in Sources */,
