@@ -9,7 +9,7 @@ import Foundation
 
 // Forkify Search Response Recipe Ingredient
 struct FSIngredient: Decodable {
-    let quantity: Double?
-    let unit: String?
-    let description: String?
+    var quantity: Double?
+    var unit: String?
+    var description: String?
 }

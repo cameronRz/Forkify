@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientListView: View {
-    var ingredients: [String]
+    @EnvironmentObject var forkifyStore: ForkifyStore
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct IngredientListView: View {
                 .padding(.bottom, 25)
             
             VStack(alignment: .leading, spacing: 25) {
-                ForEach(ingredients, id: \.self) { ingredient in
+                ForEach(forkifyStore.currentRecipeIngredients, id: \.self) { ingredient in
                     HStack(spacing: 15) {
                         IconView(icon: .checkmark)
                             .frame(width: 17)
@@ -42,6 +42,7 @@ struct IngredientListView: View {
 
 struct IngredientListView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientListView(ingredients: testRecipe.formattedIngredients)
+        IngredientListView()
+            .environmentObject(ForkifyStore())
     }
 }

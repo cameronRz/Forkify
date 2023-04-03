@@ -11,8 +11,8 @@ let testRecipe = FSRecipe(
     id: "5ed6604591c37cdc054bcd09",
     title: "Cauliflower Pizza Crust (with BBQ Chicken Pizza)",
     publisher: "Closet Cooking",
-    imageUrl: "http://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg", // Should be converted to https in the model
-    sourceUrl: "http://www.allrecipes.com/recipe/228652/pepperoni-meatza/", // Should be converted to https in the model
+    imageURL: URL(string: "http://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg"), // Should be converted to https in the model
+    sourceURL: URL(string: "http://www.allrecipes.com/recipe/228652/pepperoni-meatza/"), // Should be converted to https in the model
     servings: 4,
     cookingTime: 75,
     ingredients: [

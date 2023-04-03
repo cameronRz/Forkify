@@ -9,8 +9,8 @@ import Foundation
 
 // Forkify Search Response
 struct FSResponse: Decodable {
-    let status: String?
-    let results: Int?
-    let message: String?
-    let data: FSData?
+    var status: String?
+    var results: Int?
+    var message: String?
+    var data: FSData?
 }

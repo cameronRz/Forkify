@@ -63,7 +63,7 @@ struct RecipeTileView_Previews: PreviewProvider {
         id: "5ed6604591c37cdc054bcd09",
         title: "Cauliflower Pizza Crust (with BBQ Chicken Pizza)",
         publisher: "Closet Cooking",
-        imageUrl: "https://forkify-api.herokuapp.com/images/BBQChickenPizzawithCauliflowerCrust5004699695624ce.jpg"
+        imageURL: URL(string: "https://forkify-api.herokuapp.com/images/BBQChickenPizzawithCauliflowerCrust5004699695624ce.jpg")
     )
     
     static var previews: some View {

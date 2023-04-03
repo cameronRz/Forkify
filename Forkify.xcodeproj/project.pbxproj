@@ -37,6 +37,7 @@
 		7E6022AB29D786A500E77E54 /* IngredientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022AA29D786A500E77E54 /* IngredientListView.swift */; };
 		7E6022B129D7C84900E77E54 /* DirectionsLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022B029D7C84900E77E54 /* DirectionsLinkView.swift */; };
 		7E6022B329D7CC4000E77E54 /* ServingControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6022B229D7CC4000E77E54 /* ServingControls.swift */; };
+		7E7D897C29DB1EF900B1F01C /* IngredientFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7D897B29DB1EF900B1F01C /* IngredientFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		7E6022AA29D786A500E77E54 /* IngredientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListView.swift; sourceTree = "<group>"; };
 		7E6022B029D7C84900E77E54 /* DirectionsLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsLinkView.swift; sourceTree = "<group>"; };
 		7E6022B229D7CC4000E77E54 /* ServingControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingControls.swift; sourceTree = "<group>"; };
+		7E7D897B29DB1EF900B1F01C /* IngredientFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				7E60227129D5FA4D00E77E54 /* Extensions.swift */,
 				7E60229529D7109500E77E54 /* Modifiers.swift */,
 				7E6022A629D781C500E77E54 /* TestData.swift */,
+				7E7D897B29DB1EF900B1F01C /* IngredientFormatter.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				7E60224329D5C92D00E77E54 /* ForkifyApp.swift in Sources */,
 				7E60227229D5FA4D00E77E54 /* Extensions.swift in Sources */,
 				7E60227829D608DE00E77E54 /* TopBarView.swift in Sources */,
+				7E7D897C29DB1EF900B1F01C /* IngredientFormatter.swift in Sources */,
 				7E60229629D7109500E77E54 /* Modifiers.swift in Sources */,
 				7E6022B329D7CC4000E77E54 /* ServingControls.swift in Sources */,
 				7E60229B29D7168C00E77E54 /* FSRecipe.swift in Sources */,

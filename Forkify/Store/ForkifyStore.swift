@@ -15,20 +15,41 @@ class ForkifyStore: ObservableObject {
     @Published var recipe: FSRecipe? = nil
     @Published var recipes = [FSRecipe]()
     
+    @Published var currentRecipeIngredients = [String]()
+    @Published var currentRecipeServings: Int = 1
+    
+    private var ingredientFormatter: IngredientFormatter?
+    
+    func increaseRecipeServings() {
+        if let formatter = ingredientFormatter {
+            formatter.increaseServings()
+            self.currentRecipeIngredients = formatter.ingredients
+            self.currentRecipeServings = formatter.servings
+        }
+    }
+    
+    func decreaseRecipeServings() {
+        if let formatter = ingredientFormatter {
+            formatter.decreaseServings()
+            self.currentRecipeIngredients = formatter.ingredients
+            self.currentRecipeServings = formatter.servings
+        }
+    }
+}
+
+// MARK: - API HTTP Requests
+extension ForkifyStore {
     // MARK: - Search recipes
     func searchRecipes(withPhrase phrase: String) {
         let url = URL(string: "\(apiEndpoint)?search=\(phrase)&key=\(apiKey)")!
         
         isLoading = true
         makeHTTPRequest(withURL: url) { (response, error) in
-            var recipes = [FSRecipe]()
-            
-            if let recipeResults = response?.data?.recipes {
-                recipes = recipeResults
-            }
-            
             DispatchQueue.main.async {
-                self.recipes = recipes
+                if let recipes = response?.data?.recipes {
+                    self.recipes = recipes
+                }
+                
                 self.isLoading = false
             }
         }
@@ -40,14 +61,17 @@ class ForkifyStore: ObservableObject {
         
         isLoading = true
         makeHTTPRequest(withURL: url) { (response, error) in
-            var recipe: FSRecipe?
-            
-            if let recipeResult = response?.data?.recipe {
-                recipe = recipeResult
-            }
-            
             DispatchQueue.main.async {
-                self.recipe = recipe
+                if let recipe = response?.data?.recipe {
+                    self.recipe = recipe
+                    
+                    let formatter = IngredientFormatter(recipe: recipe)
+                    
+                    self.ingredientFormatter = formatter
+                    self.currentRecipeIngredients = formatter.ingredients
+                    self.currentRecipeServings = formatter.servings
+                }
+                
                 self.isLoading = false
             }
         }

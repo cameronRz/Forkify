@@ -11,7 +11,6 @@ struct RecipeView: View {
     @EnvironmentObject var forkifyStore: ForkifyStore
     
     let recipeId: String
-    @State var currentServings
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -29,24 +28,23 @@ struct RecipeView: View {
                         .offset(y: -25)
                     
                     HStack {
-                        IconDetailView(icon: .clock, descriptor: "Minutes", highlight: "\(recipe.cookingTime ?? 0)")
+                        IconDetailView(icon: .clock, descriptor: "Minutes", highlight: "\(recipe.cookingTime!)")
                         Spacer()
                         HStack {
-                            IconDetailView(icon: .people, descriptor: "Servings", highlight: "4")
-                            
+                            IconDetailView(icon: .people, descriptor: "Servings", highlight: "\(forkifyStore.currentRecipeServings)")
                             ServingControls {
-                                print("Increasing servings")
+                                forkifyStore.increaseRecipeServings()
                             } onDecrease: {
-                                print("Decreasing servings")
+                                forkifyStore.decreaseRecipeServings()
                             }
                         }
                     }
                     .padding(.horizontal, 30)
                     .padding(.bottom, 25)
                     
-                    IngredientListView(ingredients: testRecipe.formattedIngredients)
+                    IngredientListView()
                     
-                    DirectionsLinkView(publisher: testRecipe.publisher, sourceUrl: testRecipe.sourceURL!)
+                    DirectionsLinkView(publisher: testRecipe.publisher, sourceUrl: recipe.sourceURL!)
                         .padding(.vertical)
                         .padding(.horizontal, 50)
                 } else {
