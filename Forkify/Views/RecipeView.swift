@@ -11,48 +11,53 @@ struct RecipeView: View {
     @EnvironmentObject var forkifyStore: ForkifyStore
     
     let recipeId: String
+    @State var currentServings
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                RecipeHeaderView() // Pass imageURL
-                    .overlay(
-                        BookmarkButton()
-                            .padding(.trailing, 30)
-                            .padding(.bottom, 50)
-                        , alignment: .bottomTrailing
-                    )
-                
-                RecipeTitleView(title: "Cauliflower Pizza Crust (with BBQ Chicken Pizza)")
-                    .offset(y: -25)
-                
-                HStack {
-                    IconDetailView(icon: .clock, descriptor: "Minutes", highlight: "60")
-                    Spacer()
+                if let recipe = forkifyStore.recipe {
+                    RecipeHeaderView(imageURL: recipe.imageURL)
+                        .overlay(
+                            BookmarkButton()
+                                .padding(.trailing, 30)
+                                .padding(.bottom, 50)
+                            , alignment: .bottomTrailing
+                        )
+                    
+                    RecipeTitleView(title: recipe.title)
+                        .offset(y: -25)
+                    
                     HStack {
-                        IconDetailView(icon: .people, descriptor: "Servings", highlight: "4")
-                        
-                        ServingControls {
-                            print("Increasing servings")
-                        } onDecrease: {
-                            print("Decreasing servings")
+                        IconDetailView(icon: .clock, descriptor: "Minutes", highlight: "\(recipe.cookingTime ?? 0)")
+                        Spacer()
+                        HStack {
+                            IconDetailView(icon: .people, descriptor: "Servings", highlight: "4")
+                            
+                            ServingControls {
+                                print("Increasing servings")
+                            } onDecrease: {
+                                print("Decreasing servings")
+                            }
                         }
                     }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 25)
+                    
+                    IngredientListView(ingredients: testRecipe.formattedIngredients)
+                    
+                    DirectionsLinkView(publisher: testRecipe.publisher, sourceUrl: testRecipe.sourceURL!)
+                        .padding(.vertical)
+                        .padding(.horizontal, 50)
+                } else {
+                    Text("Placeholder")
                 }
-                .padding(.horizontal, 30)
-                .padding(.bottom, 25)
-                
-                IngredientListView(ingredients: testRecipe.formattedIngredients)
-                
-                DirectionsLinkView(publisher: testRecipe.publisher, sourceUrl: testRecipe.sourceURL!)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
             }
         }
         .background(K.Colors.grayLight1.ignoresSafeArea())
         .ignoresSafeArea(.container, edges: .top)
         .onAppear {
-            //forkifyStore.getRecipe(byId: recipeId)
+            forkifyStore.getRecipe(byId: recipeId)
         }
     }
 }

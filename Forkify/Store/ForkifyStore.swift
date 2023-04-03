@@ -59,6 +59,7 @@ class ForkifyStore: ObservableObject {
         
         let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
             if let err = error {
+                print(err) // Remove
                 return completion(nil, err)
             }
             
@@ -70,6 +71,7 @@ class ForkifyStore: ObservableObject {
                     let decodedData = try decoder.decode(FSResponse.self, from: safeData)
                     completion(decodedData, nil)
                 } catch {
+                    print(error) // Remove
                     completion(nil, error)
                 }
             }

@@ -7,6 +7,46 @@
 
 import SwiftUI
 
+// TODO: Finish the manual decode and fix logic for serving increase and decrease
+
+struct Recipe {
+    var id: String
+    var title: String
+    var publisher: String
+    var imageURL: URL?
+    var sourceURL: URL?
+    var servings: Int?
+    var cookingTime: Int?
+    var ingredients: [FSIngredient]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case publisher
+        case imageUrl
+        case sourceUrl
+        case servings
+        case cookingTime
+        case ingredients
+    }
+}
+
+extension Recipe: Identifiable, Decodable {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
+        title = try values.decode(String.self, forKey: .title)
+        publisher = try values.decode(String.self, forKey: .publisher)
+        
+        // Add logic to turn these to URLs
+//        imageURL = try values.decode(String.self, forKey: .imageUrl)
+//        sourceURL = try values.decode(String.self, forKey: .sourceUrl)
+        servings = try values.decode(Int.self, forKey: .servings)
+        cookingTime = try values.decode(Int.self, forKey: .cookingTime)
+        ingredients = try values.decode([FSIngredient].self, forKey: .ingredients)
+   }
+}
+
 // Forkify Search Response Recipe Data
 struct FSRecipe: Identifiable, Decodable {
     let id: String
@@ -30,6 +70,39 @@ struct FSRecipe: Identifiable, Decodable {
     var sourceURL: URL? {
         guard let url = sourceUrl else { return nil }
         return resolveURL(url: url)
+    }
+    
+    var testIngredients: [String]?
+    
+    var currentServings: Int? {
+        willSet {
+            // newQt = oldQt * newServings / oldServings // 2 * 8 / 4 = 4
+            
+            if let oldServings = currentServings, let newServings = newValue {
+                
+                if let recipeIngredients = ingredients {
+                    testIngredients = recipeIngredients.compactMap {
+                        var ingredient = ""
+                        
+                        if let quantity = $0.quantity {
+                            let newQuantity = quantity * Double(newServings) / Double(oldServings)
+                            
+                            ingredient = "\(fractionToString(value: newQuantity)) " // Trailing space
+                        }
+                        
+                        if let unit = $0.unit, unit != "" {
+                            ingredient = "\(ingredient)\(unit) " // Trailing space
+                        }
+                        
+                        if let description = $0.description {
+                            ingredient = "\(ingredient)\(description)"
+                        }
+                        
+                        return ingredient
+                    }
+                }
+            }
+        }
     }
     
     var formattedIngredients: [String] {
