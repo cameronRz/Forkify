@@ -23,7 +23,7 @@ enum ForkifyIcons: String {
     case smiley = "face.smiling"
     case bookmarks = "bookmark"
     case search = "magnifyingglass"
-    case paginationLeft = "arrow.left"
+    case back = "chevron.left"
     case arrowRight = "arrow.right"
     case clock = "clock"
     case people = "person.2"

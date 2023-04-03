@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "fractionformatter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/davidwkeith/FractionFormatter",
+      "state" : {
+        "revision" : "b59ee144228f8b3b325fdde3233c79ca192eb635",
+        "version" : "0.9.1"
+      }
+    }
+  ],
+  "version" : 2
+}

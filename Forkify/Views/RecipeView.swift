@@ -43,12 +43,13 @@ struct RecipeView: View {
                     .padding(.bottom, 25)
                     
                     IngredientListView()
+                        .padding(.horizontal)
                     
                     DirectionsLinkView(publisher: testRecipe.publisher, sourceUrl: recipe.sourceURL!)
                         .padding(.vertical)
                         .padding(.horizontal, 50)
                 } else {
-                    Text("Placeholder")
+                    RecipePlaceholderView()
                 }
             }
         }

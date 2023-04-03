@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FractionFormatter
 
 class IngredientFormatter: ObservableObject {
     var ingredients = [String]()
@@ -22,8 +23,6 @@ class IngredientFormatter: ObservableObject {
     }
     
     func increaseServings() {
-        guard servings < 21 else { return } // Max 20 servings
-        
         oldServings = servings
         servings += 1
         updateFSIngredients()
@@ -52,11 +51,15 @@ class IngredientFormatter: ObservableObject {
     }
     
     private func formatIngredients() {
+        let fractionFormatter = FractionFormatter()
+        
         ingredients = fsIngredients.compactMap {
             var ingredient = ""
             
             if let quantity = $0.quantity {
-                ingredient = "\(fractionToString(value: quantity)) " // Trailing space
+                let fraction = fractionFormatter.string(from: NSNumber(value: quantity))
+                let value = fraction ?? "\(quantity)"
+                ingredient = "\(value) " // Trailing space
             }
             
             if let unit = $0.unit, unit != "" {
@@ -69,49 +72,5 @@ class IngredientFormatter: ObservableObject {
             
             return ingredient
         }
-    }
-}
- // MARK: - Fraction formatter
-extension IngredientFormatter {
-    private func fractionToString(value: Double) -> String {
-        var fractionString = ""
-        var wholeNumber: Int?
-        var fraction: Double?
-        
-        if value > 1 {
-            wholeNumber = Int(value.whole)
-            fraction = value.fraction
-        } else {
-            fraction = value
-        }
-        
-        // The default is inaccurate but okay for this portfolio project
-        switch fraction! {
-        case 0.125..<0.126:
-            fractionString = NSLocalizedString("\u{215B}", comment: "1/8")
-        case 0.25..<0.26:
-            fractionString = NSLocalizedString("\u{00BC}", comment: "1/4")
-        case 0.33..<0.34:
-            fractionString = NSLocalizedString("\u{2153}", comment: "1/3")
-        case 0.5..<0.6:
-            fractionString = NSLocalizedString("\u{00BD}", comment: "1/2")
-        case 0.66..<0.67:
-            fractionString = NSLocalizedString("\u{2154}", comment: "2/3")
-        case 0.75..<0.76:
-            fractionString = NSLocalizedString("\u{00BE}", comment: "3/4")
-        default:
-            fractionString = "1"
-        }
-        
-        if var wholeNumber = wholeNumber {
-            if fractionString.isInt {
-                wholeNumber += Int(fractionString)!
-                return "\(wholeNumber)"
-            }
-            
-            return "\(wholeNumber) \(fractionString)"
-        }
-        
-        return fractionString
     }
 }
