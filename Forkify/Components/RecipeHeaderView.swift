@@ -28,7 +28,7 @@ struct RecipeHeaderView: View {
                     .foregroundColor(.white)
             }
         }
-        .frame(height: 300)
+        .frame(idealWidth: 300, maxHeight: 300)
     }
 }
 

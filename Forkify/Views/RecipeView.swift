@@ -14,8 +14,8 @@ struct RecipeView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                if let recipe = forkifyStore.recipe {
+            if let recipe = forkifyStore.recipe {
+                VStack {
                     RecipeHeaderView(imageURL: recipe.imageURL)
                         .overlay(
                             BookmarkButton()
@@ -43,14 +43,13 @@ struct RecipeView: View {
                     .padding(.bottom, 25)
                     
                     IngredientListView()
-                        .padding(.horizontal)
                     
                     DirectionsLinkView(publisher: testRecipe.publisher, sourceUrl: recipe.sourceURL!)
                         .padding(.vertical)
                         .padding(.horizontal, 50)
-                } else {
-                    RecipePlaceholderView()
                 }
+            } else {
+                RecipePlaceholderView()
             }
         }
         .background(K.Colors.grayLight1.ignoresSafeArea())

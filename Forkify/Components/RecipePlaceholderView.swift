@@ -11,24 +11,20 @@ struct RecipePlaceholderView: View {
     @EnvironmentObject var forkifyStore: ForkifyStore
     
     var body: some View {
-        ZStack {
-            K.Colors.grayLight1.ignoresSafeArea()
+        VStack {
+            Spacer()
             
-            VStack {
-                Spacer()
-                
-                if forkifyStore.isLoading {
-                    LoaderView()
-                } else {
-                    Text("There was an issue loading the recipe.")
-                        .roundedFont(size: 20)
-                        .foregroundColor(K.Colors.grayDark1)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: 300)
-                }
-                
-                Spacer()
+            if forkifyStore.isLoading {
+                LoaderView()
+            } else {
+                Text("There was an issue loading the recipe.")
+                    .roundedFont(size: 20)
+                    .foregroundColor(K.Colors.grayDark1)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 300)
             }
+            
+            Spacer()
         }
     }
 }
